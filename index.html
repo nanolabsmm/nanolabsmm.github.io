@@ -1,31 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
 <head>
-    <title>My Local HTML File</title>
+<meta charset="utf-8">
+<title>preview photo</title>
 </head>
+<script>
+var outImage ="imagenFondo";
+function fromFlutter(obj)
+{
+	if (FileReader)
+	{
+		var reader = new FileReader();
+		reader.readAsDataURL(obj.files[0]);
+		reader.onload = function (e) {
+		var image=new Image();
+		image.src=e.target.result;
+		image.onload = function () {
+			document.getElementById(outImage).src=image.src;
+		};
+		}
+	}
+	else
+	{
+		    // Not supported
+	}
+}
+</script>
 
 <body>
-<h1 id="title">remove urlL()</h1>
-<button id="aj_btn" onclick="sendBack()">Click</button>
-<div>
-    <input type='file' name='select file' onclick="sendBack()"><br>
-
-    <img alt="Mountain" style="background-color:red;" width="500" height="600" id="image_pick" src="data/user/0/com.loutkinebet.yangoncompany.untitled1/cache/e6628222-d5b2-4983-8d75-13fc64fe2521/Batman_Infobox.jpg">
-</div>
-
-<script type="text/javascript">
-            function fromFlutter(newTitle) {
-                document.getElementById("title").innerHTML = newTitle;
-                document.getElementById("image_pick").src= newTitle;
-
-
-             }
-
-             function sendBack() {
-                         document.getElementById("image_pick").src= newTitle;
-                messageHandler.postMessage("Hello from JS");
-             }
-        </script>
+<form>
+	<input type="file" onChange="fromFlutter(this);"><br>
+	<img id="imagenFondo" style="height: 300px;width: 300px;">
+</form>
 </body>
-</html>
+</html> 
