@@ -1,2 +1,30 @@
-<html lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=no"><meta http-equiv=X-UA-Compatible content="IE=edge"><meta http-equiv=Expires content=0><meta http-equiv=Pragma content=no-cache><meta http-equiv=Cache-control content=no-cache><meta http-equiv=Cache content=no-cache><title>项目</title><script src=https://res.wx.qq.com/open/js/cloudbase/1.1.0/cloud.js></script><script>var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') || CSS.supports('top: constant(a)'))
-			document.write('<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' + (coverSupport ? ', viewport-fit=cover' : '') + '" />')</script><link rel=stylesheet href=./static/index.5841170f.css></head><body><noscript><strong>Please enable JavaScript to continue.</strong></noscript><div id=app></div><script src=./static/js/chunk-vendors.941bf1f7.js></script><script src=./static/js/index.c2cc12ba.js></script></body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Local HTML File</title>
+</head>
+
+<body>
+<h1 id="title">Hello World!</h1>
+<button id="aj_btn" onclick="sendBack()">Click</button>
+<div>
+    <input type='file' name='select file' onclick="sendBack()"><br>
+
+    <img alt="Mountain" style="background-color:red;" width="500" height="600" id="image_pick">
+</div>
+
+<script type="text/javascript">
+            function fromFlutter(newTitle) {
+                document.getElementById("title").innerHTML = newTitle;
+                document.getElementById("image_pick").src= newTitle;
+
+
+             }
+
+             function sendBack() {
+                messageHandler.postMessage("Hello from JS");
+             }
+        </script>
+</body>
+</html>
